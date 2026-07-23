@@ -11,13 +11,22 @@ config_version=5
 [application]
 
 config/name="GMTK GAME JAM 2026"
+run/main_scene="uid://hhi3uiatqwu1"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[autoload]
+
+Global="*uid://c8x4aas3uahdv"
 
 [display]
 
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
+
+[global_group]
+
+Countdown="TILL BOOM"
 
 [physics]
 
@@ -25,6 +34,8 @@ window/stretch/aspect="expand"
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+environment/defaults/default_clear_color=Color(0.005209042, 0.06820031, 0.09341768, 1)

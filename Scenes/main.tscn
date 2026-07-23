@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://gth2wyagvg81"]
+
+[ext_resource type="Script" uid="uid://c1wsxnlo1cfwv" path="res://Scripts/main.gd" id="1_bo1nx"]
+[ext_resource type="PackedScene" uid="uid://povfb75pqx3a" path="res://Scenes/player.tscn" id="2_8gbba"]
+[ext_resource type="Script" uid="uid://brm2gbckfgbbt" path="res://Scripts/timerlabel.gd" id="3_jjvhh"]
+
+[node name="main" type="Node2D" unique_id=1660709114]
+script = ExtResource("1_bo1nx")
+
+[node name="Node" type="Node" parent="." unique_id=614541467]
+script = ExtResource("3_jjvhh")
+
+[node name="Timer" type="Timer" parent="Node" unique_id=265256450 groups=["Countdown"]]
+process_callback = 0
+wait_time = 5.0
+one_shot = true
+
+[node name="Label" type="Label" parent="Node" unique_id=316716480]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -0.5
+offset_right = 0.5
+offset_bottom = 23.0
+grow_horizontal = 2
+
+[node name="Player" parent="." unique_id=1850311698 instance=ExtResource("2_8gbba")]
+
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=967837623]
+
+[connection signal="timeout" from="Node/Timer" to="." method="_on_timer_timeout"]

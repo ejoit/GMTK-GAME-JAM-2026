@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://we2up8jhqsbm"]
+
+[ext_resource type="Script" uid="uid://dwwe3chwhg78h" path="res://Scripts/plus_time.gd" id="1_cl4gs"]
+[ext_resource type="Texture2D" uid="uid://brva1pxwqvjs4" path="res://Sprites/Untitled 05-06-2026 12-20-34 (2).png" id="2_cl4gs"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d57rs"]
+size = Vector2(7.499999, 7.499999)
+
+[node name="PlusTime" type="Node2D" unique_id=1597235528]
+script = ExtResource("1_cl4gs")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1121751694]
+position = Vector2(1.1920929e-07, 1.1368684e-13)
+texture = ExtResource("2_cl4gs")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=55088630]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=537522223]
+position = Vector2(0, 1.1920929e-07)
+scale = Vector2(0.8, 0.8)
+shape = SubResource("RectangleShape2D_d57rs")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://cp0dwkwam3vc0"]
+
+[ext_resource type="Script" uid="uid://c4xjjcff72jea" path="res://Scripts/timer_manager.gd" id="1_2slwu"]
+
+[node name="TimerManager" type="Control" unique_id=1353009218]
+layout_mode = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+grow_horizontal = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+script = ExtResource("1_2slwu")
+
+[node name="Timer" type="Timer" parent="." unique_id=485750224 groups=["Countdown"]]
+process_callback = 0
+wait_time = 5.0
+one_shot = true
+
+[node name="Label" type="Label" parent="." unique_id=1090433113]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 53
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
