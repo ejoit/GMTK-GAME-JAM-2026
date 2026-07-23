@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://r42rixw0ub2p" path="res://Scripts/minus_time.gd" id="1_3d68t"]
 [ext_resource type="Texture2D" uid="uid://cgfu516ogyl3o" path="res://Sprites/Untitled 05-06-2026 12-20-34 (3).png" id="2_3d68t"]
+[ext_resource type="FontFile" uid="uid://dg1nvbwd0kpj2" path="res://fonts/doscode-f001.otf" id="3_if8ra"]
+[ext_resource type="AudioStream" uid="uid://cdp27xuesr5lm" path="res://sounds/minus.wav" id="4_u8dmc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i2owo"]
 size = Vector2(7.499999, 7.499999)
@@ -20,5 +22,20 @@ texture = ExtResource("2_3d68t")
 position = Vector2(0, 1.1920929e-07)
 scale = Vector2(0.8, 0.8)
 shape = SubResource("RectangleShape2D_i2owo")
+
+[node name="Label" type="Label" parent="." unique_id=1736851127]
+offset_left = -4.0
+offset_top = -12.0
+offset_right = 5.0
+offset_bottom = 14.0
+theme_override_fonts/font = ExtResource("3_if8ra")
+theme_override_font_sizes/font_size = 4
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=360788685]
+stream = ExtResource("4_u8dmc")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://xhh2ppwx114g"]
+
+[ext_resource type="FontFile" uid="uid://dg1nvbwd0kpj2" path="res://fonts/doscode-f001.otf" id="1_3lblr"]
+[ext_resource type="Script" uid="uid://cjqkqy35bdqxy" path="res://Scripts/titlescreen.gd" id="1_u4xby"]
+
+[node name="Control" type="Control" unique_id=1749509040]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_u4xby")
+
+[node name="Label" type="Label" parent="." unique_id=892251540]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -420.0
+offset_top = 64.0
+offset_right = 420.0
+offset_bottom = 124.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.59219235, 0.46454024, 0.75533605, 1)
+theme_override_colors/font_outline_color = Color(0.14261377, 0.20921433, 0.39341545, 1)
+theme_override_constants/outline_size = 60
+theme_override_fonts/font = ExtResource("1_3lblr")
+theme_override_font_sizes/font_size = 60
+text = "COUNTING STEPS"
+
+[node name="QUIT" type="Button" parent="." unique_id=459761601]
+layout_mode = 0
+offset_left = 448.0
+offset_top = 340.0
+offset_right = 706.0
+offset_bottom = 398.0
+theme_override_fonts/font = ExtResource("1_3lblr")
+theme_override_font_sizes/font_size = 50
+text = "QUIT"
+
+[node name="Start" type="Button" parent="." unique_id=1396443396]
+layout_mode = 0
+offset_left = 448.0
+offset_top = 256.0
+offset_right = 706.0
+offset_bottom = 314.0
+theme_override_fonts/font = ExtResource("1_3lblr")
+theme_override_font_sizes/font_size = 50
+text = "START"
+
+[connection signal="pressed" from="QUIT" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="Start" to="." method="_on_start_pressed"]

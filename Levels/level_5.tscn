@@ -1,0 +1,123 @@
+[gd_scene format=4 uid="uid://do1tob14fr53y"]
+
+[ext_resource type="Texture2D" uid="uid://bhbm257ckpbfh" path="res://Tilesets/bluetile.png" id="1_hvgxt"]
+[ext_resource type="TileSet" uid="uid://cl4ryi5xn30by" path="res://Tilesets/doorgrid.tres" id="2_waaef"]
+[ext_resource type="PackedScene" uid="uid://we2up8jhqsbm" path="res://Scenes/plus_time.tscn" id="3_fqog2"]
+[ext_resource type="PackedScene" uid="uid://povfb75pqx3a" path="res://Scenes/player.tscn" id="4_ben3k"]
+[ext_resource type="PackedScene" uid="uid://dvc7q0hh2wb2c" path="res://Scenes/goal.tscn" id="5_77xid"]
+[ext_resource type="PackedScene" uid="uid://cp0dwkwam3vc0" path="res://Scenes/timer_manager.tscn" id="6_m0m22"]
+[ext_resource type="PackedScene" uid="uid://dadtobhlqlr0j" path="res://Scenes/minus_time.tscn" id="7_waaef"]
+[ext_resource type="FontFile" uid="uid://dg1nvbwd0kpj2" path="res://fonts/doscode-f001.otf" id="8_fqog2"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kbe2v"]
+texture = ExtResource("1_hvgxt")
+
+[sub_resource type="TileSet" id="TileSet_arsda"]
+tile_size = Vector2i(8, 8)
+sources/0 = SubResource("TileSetAtlasSource_kbe2v")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fqog2"]
+texture = ExtResource("1_hvgxt")
+texture_region_size = Vector2i(8, 8)
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_25373"]
+tile_size = Vector2i(8, 8)
+sources/0 = SubResource("TileSetAtlasSource_fqog2")
+
+[node name="level_4" type="Node2D" unique_id=1445527952]
+
+[node name="TileMap" type="TileMap" parent="." unique_id=1722574860]
+tile_set = SubResource("TileSet_arsda")
+rendering_quadrant_size = 8
+format = 2
+
+[node name="walls" type="TileMapLayer" parent="TileMap" unique_id=1356465211]
+tile_map_data = PackedByteArray("AAAHAAQAAAAAAAAAAAAIAAQAAAAAAAAAAAAJAAQAAAAAAAAAAAAKAAQAAAAAAAAAAAAKAAIAAAAAAAAAAAAKAAMAAAAAAAAAAAAGAAQAAAAAAAAAAAAGAAMAAAAAAAAAAAAGAAIAAAAAAAAAAAAGAAEAAAAAAAAAAAAKAAAAAAAAAAAAAAAGAAAAAAAAAAAAAAAGAP//AAAAAAAAAAAKAP//AAAAAAAAAAALAAIAAAAAAAAAAAAMAAIAAAAAAAAAAAANAAAAAAAAAAAAAAANAAEAAAAAAAAAAAANAAIAAAAAAAAAAAALAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAAHAP//AAAAAAAAAAAIAP//AAAAAAAAAAAJAP//AAAAAAAAAAA=")
+tile_set = SubResource("TileSet_25373")
+
+[node name="doors" type="TileMapLayer" parent="TileMap" unique_id=1898613876]
+tile_map_data = PackedByteArray("AAAIAAEAAQAAAAIAAAAKAAEAAQACAAEAAAA=")
+tile_set = ExtResource("2_waaef")
+rendering_quadrant_size = 8
+
+[node name="labels" type="Node2D" parent="TileMap" unique_id=1852850881]
+
+[node name="Label" type="Label" parent="TileMap/labels" unique_id=863246871]
+offset_left = 64.0
+offset_right = 73.0
+offset_bottom = 26.0
+theme_override_fonts/font = ExtResource("8_fqog2")
+theme_override_font_sizes/font_size = 4
+text = "9"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Label2" type="Label" parent="TileMap/labels" unique_id=945199543]
+offset_left = -56.0
+offset_top = 56.0
+offset_right = -47.0
+offset_bottom = 82.0
+theme_override_fonts/font = ExtResource("8_fqog2")
+theme_override_font_sizes/font_size = 4
+text = "6"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Player" parent="." unique_id=1850311698 instance=ExtResource("4_ben3k")]
+position = Vector2(60, 28)
+moves = 4
+
+[node name="GOAL" parent="." unique_id=658148214 instance=ExtResource("5_77xid")]
+position = Vector2(100, 12)
+next_level = "res://Scenes/placeholder_end.tscn"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=307184674]
+
+[node name="TimerManager" parent="CanvasLayer" unique_id=1353009218 instance=ExtResource("6_m0m22")]
+
+[node name="minus_time" parent="." unique_id=801453530 instance=ExtResource("7_waaef")]
+position = Vector2(60, 20)
+minusmoves = 3
+
+[node name="minus_time2" parent="." unique_id=284030265 instance=ExtResource("7_waaef")]
+position = Vector2(68, 28)
+minusmoves = 2
+
+[node name="minus_time3" parent="." unique_id=836383579 instance=ExtResource("7_waaef")]
+position = Vector2(76, 20)
+minusmoves = 3
+
+[node name="PlusTime3" parent="." unique_id=1597235528 instance=ExtResource("3_fqog2")]
+position = Vector2(76, 28)
+addmoves = 5
+
+[node name="PlusTime4" parent="." unique_id=121066039 instance=ExtResource("3_fqog2")]
+position = Vector2(68, 20)
+addmoves = 5
+
+[node name="PlusTime5" parent="." unique_id=1926399016 instance=ExtResource("3_fqog2")]
+position = Vector2(76, 12)
+addmoves = 8
+
+[node name="PlusTime6" parent="." unique_id=338377225 instance=ExtResource("3_fqog2")]
+position = Vector2(60, 12)
+addmoves = 3
+
+[node name="minus_time4" parent="." unique_id=1775789478 instance=ExtResource("7_waaef")]
+position = Vector2(92, 12)
+minusmoves = 4
+
+[node name="PlusTime7" parent="." unique_id=1315025499 instance=ExtResource("3_fqog2")]
+position = Vector2(60, 4)
+addmoves = 3
+
+[node name="minus_time5" parent="." unique_id=2143402717 instance=ExtResource("7_waaef")]
+position = Vector2(68, 4)
+minusmoves = 4
+
+[node name="PlusTime8" parent="." unique_id=1106796702 instance=ExtResource("3_fqog2")]
+position = Vector2(76, 4)
+addmoves = 1

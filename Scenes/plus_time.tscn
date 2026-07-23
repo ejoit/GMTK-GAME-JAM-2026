@@ -2,12 +2,15 @@
 
 [ext_resource type="Script" uid="uid://dwwe3chwhg78h" path="res://Scripts/plus_time.gd" id="1_cl4gs"]
 [ext_resource type="Texture2D" uid="uid://brva1pxwqvjs4" path="res://Sprites/Untitled 05-06-2026 12-20-34 (2).png" id="2_cl4gs"]
+[ext_resource type="FontFile" uid="uid://dg1nvbwd0kpj2" path="res://fonts/doscode-f001.otf" id="3_d57rs"]
+[ext_resource type="AudioStream" uid="uid://bl4oh4y8u4njp" path="res://sounds/powerup.wav" id="4_3n80m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d57rs"]
 size = Vector2(7.499999, 7.499999)
 
 [node name="PlusTime" type="Node2D" unique_id=1597235528]
 script = ExtResource("1_cl4gs")
+addmoves = 7
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1121751694]
 position = Vector2(1.1920929e-07, 1.1368684e-13)
@@ -19,5 +22,19 @@ texture = ExtResource("2_cl4gs")
 position = Vector2(0, 1.1920929e-07)
 scale = Vector2(0.8, 0.8)
 shape = SubResource("RectangleShape2D_d57rs")
+
+[node name="Label" type="Label" parent="." unique_id=493707046]
+offset_left = -4.0
+offset_top = -12.0
+offset_right = 5.0
+offset_bottom = 14.0
+theme_override_fonts/font = ExtResource("3_d57rs")
+theme_override_font_sizes/font_size = 4
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1102917565]
+stream = ExtResource("4_3n80m")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

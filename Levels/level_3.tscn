@@ -1,0 +1,90 @@
+[gd_scene format=4 uid="uid://bs7u4kt7fwt6i"]
+
+[ext_resource type="Texture2D" uid="uid://bhbm257ckpbfh" path="res://Tilesets/bluetile.png" id="1_padch"]
+[ext_resource type="TileSet" uid="uid://cl4ryi5xn30by" path="res://Tilesets/doorgrid.tres" id="2_ay5qi"]
+[ext_resource type="PackedScene" uid="uid://dadtobhlqlr0j" path="res://Scenes/minus_time.tscn" id="2_fa81k"]
+[ext_resource type="PackedScene" uid="uid://we2up8jhqsbm" path="res://Scenes/plus_time.tscn" id="2_uwxw1"]
+[ext_resource type="PackedScene" uid="uid://povfb75pqx3a" path="res://Scenes/player.tscn" id="3_ay5qi"]
+[ext_resource type="FontFile" uid="uid://dg1nvbwd0kpj2" path="res://fonts/doscode-f001.otf" id="3_fa81k"]
+[ext_resource type="PackedScene" uid="uid://dvc7q0hh2wb2c" path="res://Scenes/goal.tscn" id="4_fa81k"]
+[ext_resource type="PackedScene" uid="uid://cp0dwkwam3vc0" path="res://Scenes/timer_manager.tscn" id="5_ck3gp"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kbe2v"]
+texture = ExtResource("1_padch")
+
+[sub_resource type="TileSet" id="TileSet_arsda"]
+tile_size = Vector2i(8, 8)
+sources/0 = SubResource("TileSetAtlasSource_kbe2v")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dgq3b"]
+texture = ExtResource("1_padch")
+texture_region_size = Vector2i(8, 8)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4, -4, 4, -4, 4, 4, -4, 4)
+
+[sub_resource type="TileSet" id="TileSet_bcgyv"]
+tile_size = Vector2i(8, 8)
+physics_layer_0/collision_layer = 1
+custom_data_layer_0/name = "wall"
+custom_data_layer_0/type = 0
+custom_data_layer_1/name = ""
+custom_data_layer_1/type = 0
+sources/0 = SubResource("TileSetAtlasSource_dgq3b")
+
+[node name="level_2" type="Node2D" unique_id=1445527952]
+
+[node name="TileMap" type="TileMap" parent="." unique_id=1722574860]
+tile_set = SubResource("TileSet_arsda")
+rendering_quadrant_size = 8
+format = 2
+
+[node name="walls" type="TileMapLayer" parent="TileMap" unique_id=1356465211]
+tile_map_data = PackedByteArray("AAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAD//wAAAAAAAAAAAAD+/wAAAAAAAAAAAAD9/wAAAAAAAAAAAAD8/wAAAAAAAAAAAAD7/wAAAAAAAAAAAAD7/wEAAAAAAAAAAAD7/wIAAAAAAAAAAAD7/wMAAAAAAAAAAAD7/wQAAAAAAAAAAAD7/wUAAAAAAAAAAAD7/wYAAAAAAAAAAAD7/wcAAAAAAAAAAAD7/wgAAAAAAAAAAAD8/wgAAAAAAAAAAAD9/wgAAAAAAAAAAAD+/wgAAAAAAAAAAAD//wgAAAAAAAAAAAAAAAgAAAAAAAAAAAABAAgAAAAAAAAAAAACAAgAAAAAAAAAAAADAAgAAAAAAAAAAAAEAAgAAAAAAAAAAAAEAAcAAAAAAAAAAAAEAAYAAAAAAAAAAAAEAAUAAAAAAAAAAAAEAAQAAAAAAAAAAAAEAAMAAAAAAAAAAAAEAAIAAAAAAAAAAAAEAAEAAAAAAAAAAAAEAAAAAAAAAAAAAAADAAAAAAAAAAAAAAD8/wUAAAAAAAAAAAD9/wUAAAAAAAAAAAD+/wUAAAAAAAAAAAD+/wYAAAAAAAAAAAA=")
+tile_set = SubResource("TileSet_bcgyv")
+
+[node name="doors" type="TileMapLayer" parent="TileMap" unique_id=253128431]
+tile_map_data = PackedByteArray("AAD+/wcAAQACAAAAAAA=")
+tile_set = ExtResource("2_ay5qi")
+rendering_quadrant_size = 8
+
+[node name="labels" type="Node2D" parent="." unique_id=2021725160]
+
+[node name="Label" type="Label" parent="labels" unique_id=284124617]
+offset_left = -16.0
+offset_top = 48.0
+offset_right = -7.0
+offset_bottom = 74.0
+theme_override_fonts/font = ExtResource("3_fa81k")
+theme_override_font_sizes/font_size = 4
+text = "3"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="PlusTime" parent="." unique_id=1597235528 instance=ExtResource("2_uwxw1")]
+position = Vector2(-12, 20)
+addmoves = 3
+
+[node name="PlusTime2" parent="." unique_id=1461244844 instance=ExtResource("2_uwxw1")]
+position = Vector2(-4, 36)
+addmoves = 5
+
+[node name="PlusTime3" parent="." unique_id=123966786 instance=ExtResource("2_uwxw1")]
+position = Vector2(12, 52)
+addmoves = 5
+
+[node name="Player" parent="." unique_id=1850311698 instance=ExtResource("3_ay5qi")]
+position = Vector2(12, 12)
+moves = 4
+
+[node name="GOAL" parent="." unique_id=658148214 instance=ExtResource("4_fa81k")]
+position = Vector2(-20, 52)
+next_level = "res://Levels/level_4.tscn"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=307184674]
+
+[node name="TimerManager" parent="CanvasLayer" unique_id=1353009218 instance=ExtResource("5_ck3gp")]
+
+[node name="minus_time" parent="." unique_id=801453530 instance=ExtResource("2_fa81k")]
+position = Vector2(-4, 52)
+minusmoves = 2
