@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://doria61ms10ks"]
+
+[ext_resource type="AudioStream" uid="uid://037m4ppy1etq" path="res://music/truefintheme.mp3" id="1_52fhu"]
+[ext_resource type="Script" uid="uid://c5i7a8jjyi0se" path="res://Scripts/theme.gd" id="2_52fhu"]
+
+[node name="main theme" type="AudioStreamPlayer2D" unique_id=1081463063]
+stream = ExtResource("1_52fhu")
+autoplay = true
+script = ExtResource("2_52fhu")

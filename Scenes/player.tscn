@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://povfb75pqx3a"]
 
 [ext_resource type="Script" uid="uid://d4ee4nttdk0yu" path="res://Scripts/player.gd" id="1_0bb2n"]
-[ext_resource type="Texture2D" uid="uid://djstf1hqia2hh" path="res://Sprites/player1.png" id="2_cvnsp"]
-[ext_resource type="AudioStream" uid="uid://0dw787qbgyoy" path="res://sounds/move2.wav" id="3_6t5aa"]
+[ext_resource type="Texture2D" uid="uid://cvhvnnjdswkp0" path="res://Sprites/Untitled 05-06-2026 12-20-34 (3) (2) (1).png" id="2_vgqql"]
+[ext_resource type="AudioStream" uid="uid://4ikg18kap2v3" path="res://sounds/click.wav" id="3_vgqql"]
 [ext_resource type="AudioStream" uid="uid://b7ybu0pfy6iiy" path="res://sounds/explosion (2).wav" id="4_vgqql"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i2owo"]
@@ -11,8 +11,39 @@ size = Vector2(6, 6)
 [node name="Player" type="CharacterBody2D" unique_id=1850311698]
 script = ExtResource("1_0bb2n")
 
+[node name="diepar" type="CPUParticles2D" parent="." unique_id=676486487]
+emitting = false
+amount = 90
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 4.0
+initial_velocity_max = 5.0
+radial_accel_min = 2.0
+radial_accel_max = 5.0
+scale_amount_min = 0.8
+scale_amount_max = 0.8
+color = Color(0.42153034, 0.16260782, 0.22745389, 1)
+hue_variation_min = -1.0
+hue_variation_max = 1.0
+
+[node name="dust" type="CPUParticles2D" parent="." unique_id=273517529]
+emitting = false
+amount = 4
+lifetime = 0.2
+one_shot = true
+explosiveness = 1.0
+direction = Vector2(0, -1)
+spread = 80.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 5.0
+initial_velocity_max = 10.0
+scale_amount_min = 0.5
+
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=827619017]
-texture = ExtResource("2_cvnsp")
+texture = ExtResource("2_vgqql")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=692724338]
 shape = SubResource("RectangleShape2D_i2owo")
@@ -21,7 +52,9 @@ shape = SubResource("RectangleShape2D_i2owo")
 zoom = Vector2(10, 10)
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1998785441]
-stream = ExtResource("3_6t5aa")
+stream = ExtResource("3_vgqql")
+volume_db = -30.0
 
 [node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="." unique_id=1464683774]
 stream = ExtResource("4_vgqql")
+volume_db = -30.0

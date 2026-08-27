@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://0jbu8gny8kmp"
+path="res://.godot/imported/final crappy theme.mp3-0fb34c88b2c58cfa2124d0bbe8450118.mp3str"
+
+[deps]
+
+source_file="res://music/final crappy theme.mp3"
+dest_files=["res://.godot/imported/final crappy theme.mp3-0fb34c88b2c58cfa2124d0bbe8450118.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

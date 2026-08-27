@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://dsfvjmmr0nqrj"]
+
+[ext_resource type="Script" uid="uid://yktk2b3v2mxe" path="res://Scripts/equal_time.gd" id="1_nyjrr"]
+[ext_resource type="Texture2D" uid="uid://bmepu2t3wqvtl" path="res://Sprites/Untitled 05-06-2026 12-20-34 (3) (1).png" id="2_sojhe"]
+[ext_resource type="FontFile" uid="uid://dg1nvbwd0kpj2" path="res://fonts/doscode-f001.otf" id="3_746oc"]
+[ext_resource type="AudioStream" uid="uid://bl4oh4y8u4njp" path="res://sounds/powerup.wav" id="4_tlcft"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d57rs"]
+size = Vector2(7.499999, 7.499999)
+
+[node name="equalTime" type="Node2D" unique_id=1597235528]
+script = ExtResource("1_nyjrr")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1121751694]
+position = Vector2(1.1920929e-07, 1.1368684e-13)
+texture = ExtResource("2_sojhe")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=55088630]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=537522223]
+position = Vector2(0, 1.1920929e-07)
+scale = Vector2(0.8, 0.8)
+shape = SubResource("RectangleShape2D_d57rs")
+
+[node name="Label" type="Label" parent="." unique_id=493707046]
+offset_left = -4.0
+offset_top = -12.0
+offset_right = 5.0
+offset_bottom = 14.0
+theme_override_fonts/font = ExtResource("3_746oc")
+theme_override_font_sizes/font_size = 4
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1102917565]
+stream = ExtResource("4_tlcft")
+volume_db = -40.0
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

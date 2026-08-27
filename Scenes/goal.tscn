@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dvc7q0hh2wb2c"]
 
 [ext_resource type="Script" uid="uid://bxq301m07dj5y" path="res://Scripts/goal.gd" id="1_paeek"]
-[ext_resource type="Texture2D" uid="uid://b8vekrm4q1gov" path="res://Sprites/Untitled 07-23-2026 08-32-53.png" id="2_s0pnd"]
+[ext_resource type="Texture2D" uid="uid://deniglvyy7alf" path="res://Sprites/Untitled 05-06-2026 12-20-34 (3) (3).png" id="2_s0pnd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s0pnd"]
 size = Vector2(8, 8)

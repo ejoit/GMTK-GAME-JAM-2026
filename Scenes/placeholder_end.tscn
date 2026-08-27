@@ -1,5 +1,10 @@
 [gd_scene format=3 uid="uid://dvpf6yypgst0"]
 
+[ext_resource type="Script" uid="uid://bmm4o1rwsj0ng" path="res://Scripts/placeholder_end.gd" id="1_duvid"]
+[ext_resource type="FontFile" uid="uid://dg1nvbwd0kpj2" path="res://fonts/doscode-f001.otf" id="1_lyv8t"]
+
+[sub_resource type="Theme" id="Theme_l6657"]
+
 [node name="PLACEHOLDER END" type="Control" unique_id=1070523387]
 layout_mode = 3
 anchors_preset = 15
@@ -7,10 +12,40 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_duvid")
 
 [node name="Label" type="Label" parent="." unique_id=848693607]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
-text = "YOU FINISHED THE LEVEL
-THIS IS A PLAYS HOLDER"
+offset_right = 1152.0
+offset_bottom = 648.0
+theme_override_fonts/font = ExtResource("1_lyv8t")
+theme_override_font_sizes/font_size = 50
+text = "Thank you for playing
+
+Credits:
+Ethan/EJOIT
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="." unique_id=963145779]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -184.0
+offset_top = 145.5
+offset_right = 184.0
+offset_bottom = 208.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_l6657")
+theme_type_variation = &"FlatButton"
+theme_override_fonts/font = ExtResource("1_lyv8t")
+theme_override_font_sizes/font_size = 40
+text = "MAIN MENU
+"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

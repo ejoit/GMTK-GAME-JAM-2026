@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://dtyl2bsg7boqa"]
+
+[ext_resource type="Script" uid="uid://bks3f0dqlvlfp" path="res://Scripts/box.gd" id="1_ego7h"]
+[ext_resource type="Texture2D" uid="uid://cin8vlwjc3jhj" path="res://Sprites/Untitled 07-23-2026 08-32-53 (1).png" id="2_2jyye"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ylk5t"]
+size = Vector2(6, 6)
+
+[node name="box" type="StaticBody2D" unique_id=670964298]
+script = ExtResource("1_ego7h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1016573454]
+shape = SubResource("RectangleShape2D_ylk5t")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1157716585]
+texture = ExtResource("2_2jyye")
